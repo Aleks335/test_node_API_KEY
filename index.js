@@ -7,7 +7,6 @@ const {request} = require("express");
 
 
 
-
 function testMiddleware(req, res, next) {
     console.log('iddleware')
     next();
@@ -19,11 +18,19 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+const {con} = require("./db/connectionDB");
+const {selectAllUsers} = require("./db/filmDB");
 
-//post
-app.get('/test', testMiddleware, (req, res)=>{
+
+// //post
+// app.get('/test', testMiddleware, (req, res)=>{
+//     res.json({
+//         str:process.env.API_KEY,
+//     })
+// })
+ app.get('/selectAllUsers', async (req, res)=> {
     res.json({
-        str:process.env.API_KEY,
+        str: await selectAllUsers(),
     })
 })
 
