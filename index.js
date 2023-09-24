@@ -28,9 +28,24 @@ const {selectAllUsers} = require("./db/filmDB");
 //         str:process.env.API_KEY,
 //     })
 // })
- app.get('/selectAllUsers', async (req, res)=> {
+//  app.get('/selectAllUsers', async (req, res)=> {
+//     res.json({
+//         str: await selectAllUsers(),
+//     })
+// })
+
+
+//post
+app.get('/test', testMiddleware, (req, res)=>{
     res.json({
-        str: await selectAllUsers(),
+        // str:process.env.API_KEY,
+        str:'postTesrt',
+    })
+})
+ app.get('/test2', async (req, res)=> {
+    res.json({
+        // str: await selectAllUsers(),
+        str: 'getTesrt2',
     })
 })
 
