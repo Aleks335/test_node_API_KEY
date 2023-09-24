@@ -36,7 +36,7 @@ const {selectAllUsers} = require("./db/filmDB");
 
 
 //post
-app.get('/test', testMiddleware, (req, res)=>{
+app.post('/test', testMiddleware, (req, res)=>{
     res.json({
         // str:process.env.API_KEY,
         str:'postTesrt',
